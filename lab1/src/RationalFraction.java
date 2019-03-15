@@ -7,19 +7,19 @@ public class RationalFraction
 
 
     private float value;
-    public Float getvalue()
+    public Float getValue()
     {
         return value;
     }
     private int numerator;
-    public Integer getnumerator()
+    public Integer getNumerator()
     {
         return numerator;
     }
     private int denomerator;
-    public Integer getennumerator()
+    public Integer getDenomerator()
     {
-        return numerator;
+        return denomerator;
     }
 
 
@@ -29,5 +29,5 @@ public class RationalFraction
         this.numerator = a;
         this.denomerator = b;
     }
-    Comparator<RationalFraction> comparator = Comparator.comparing(RationalFraction::getvalue);
+    Comparator<RationalFraction> comparator = Comparator.comparing(RationalFraction::getValue);
 }
