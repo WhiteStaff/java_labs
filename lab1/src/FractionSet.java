@@ -26,6 +26,10 @@ public class FractionSet {
 
 
     }
+    public boolean IsEmpty()
+    {
+        return bigSet.isEmpty();
+    }
 
     public String MaxFractionView() {
         return (bigSet.get(bigSet.size() - 1).getNumerator() + "/" + bigSet.get(bigSet.size() - 1).getDenomerator());
@@ -57,11 +61,11 @@ public class FractionSet {
         }
         for (int i = 1; i < bigSet.size(); i++) {
             if ((bigSet.get(i - 1).getValue() < current.getValue()) && (bigSet.get(i).getValue() > current.getValue())) {
-                amountLess.put(current, i - 1);
+                amountLess.put(current, i);
                 return i - 1;
             }
             if ((bigSet.get(i - 1).getValue().equals(current.getValue())) && (bigSet.get(i).getValue() > current.getValue())) {
-                amountLess.put(current, i - 2);
+                amountLess.put(current, i - 1);
                 return i - 2;
             }
         }

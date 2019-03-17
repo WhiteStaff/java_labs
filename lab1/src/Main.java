@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -17,45 +18,37 @@ public class Main {
                     System.exit(0);
                     break;
                 case "min":
-                    try
-                    {
-                        System.out.println("Beautiful view: " + myset.MinFractionView());
-                        System.out.println("As value: " + myset.MinFractionNum());
-                        System.out.print("Successful!");
-                    }
-                    catch (Exception e)
-                    {
-                        System.out.println("Set is empty");
-                    }
+                    if (myset.IsEmpty()) { System.out.println("Set is empty!!"); break; }
+                    System.out.println("Beautiful view: " + myset.MinFractionView());
+                    System.out.println("As value: " + myset.MinFractionNum());
+                    System.out.println("Successful!");
                     break;
                 case "max":
-                    try {
-                        System.out.println("Beautiful view: " + myset.MaxFractionView());
-                        System.out.println("As value: " + myset.MaxFractionNum());
-                        System.out.print("Successful!");
-                    } catch (Exception e)
-                    {
-                        System.out.println("Set is empty");
-                    }
+                    if (myset.IsEmpty()) { System.out.println("Set is empty!!"); break; }
+                    System.out.println("Beautiful view: " + myset.MaxFractionView());
+                    System.out.println("As value: " + myset.MaxFractionNum());
+                    System.out.println("Successful!");
                     break;
                 case "less":
+                    if (myset.IsEmpty()) { System.out.println("Set is empty!!"); break; }
                     try {
                         System.out.print("Enter numerator: ");
                         a = scanner.nextInt();
                         System.out.print("Enter denumerator: ");
                         b = scanner.nextInt();
-                        System.out.println(myset.AllLessThan(a, b));
+                        System.out.println("Your fraction is bigger than " + myset.AllLessThan(a, b) + " fractions in set.");
                     } catch (Exception e) {
                         System.out.println("Numbers, please");
                     }
                     break;
                 case "more":
+                    if (myset.IsEmpty()) { System.out.println("Set is empty!!"); break; }
                     try {
                         System.out.print("Enter numerator: ");
                         a = scanner.nextInt();
                         System.out.print("Enter denumerator: ");
                         b = scanner.nextInt();
-                        System.out.println(myset.AllMoreThan(a, b));
+                        System.out.println("Your fraction is bigger than " + myset.AllMoreThan(a, b) + " fractions in set.");
 
                     } catch (Exception e) {
                         System.out.println("Numbers, please");
@@ -68,12 +61,20 @@ public class Main {
                         System.out.print("Enter denumerator: ");
                         b = scanner.nextInt();
                         myset.Add(a, b);
-                        System.out.print("Successful!");
+                        System.out.println("Successful!");
                     } catch (Exception e) {
                         System.out.println("Numbers, please");
 
                     }
                     break;
+                case "file":
+                    File file = new File(scanner.next());
+                    try {
+                        Scanner fileScanner = new Scanner(file);
+                        fileScanner
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 case "help":
                     System.out.println("Enter 'exit' to exit\nEnter 'add' to add new fraction\nEnter 'min' to see minimum fraction\nEnter 'max' to see maximum fraction" +
                             "\nEnter less to compare your fraction with fraction set\nEnter more to compare your fraction with fraction set");
