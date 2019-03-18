@@ -1,18 +1,37 @@
-import java.util.ArrayList;
+import java.util.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+// TODO: see java naming conventions (method/field names are camelCase, class names are TitleCase)
+// TODO: rename to `FractionList`
+// TODO: make all fields final
+// TODO: think (FL is immutable) vs (FL is mutable)
 public class FractionSet {
+    // TODO: rename to `fractions` (`coefficients` in Polynomial)
     private List<RationalFraction> bigSet = new ArrayList<RationalFraction>();
     private Map<RationalFraction, Integer> amountLess = new HashMap<>();
     private Map<RationalFraction, Integer> amountMore = new HashMap<>();
 
+//    // when you implement primary ctor:
+//    FractionSet(List, Map, Map) {
+//        this.bigSet = bigSet;
+//        ...
+//    }
+
+//    // secondary ctors:
+//    FractionSet(List) {
+//        this(..., new HashMap(), new HashMap())
+//    }
+
+//    FractionSet(RationalFraction... fractions) {
+//        // Note: fractions has type RationalFraction[]
+//        this( Arrays.asList(fractions) );
+//    }
+
+    // this function is `mutator` => FL is mutable
     public void Add(int a, int b) {
         RationalFraction Fraction = new RationalFraction(a, b);
         bigSet.add(Fraction);
-        bigSet.sort(Fraction.comparator);
+//        bigSet.sort(Fraction.comparator);
+        bigSet.sort(Comparator.naturalOrder());
         amountLess.clear();
         amountMore.clear();
     }
@@ -23,11 +42,9 @@ public class FractionSet {
 
     public String MinFractionNum() {
         return (String.format("%.5f", bigSet.get(0).getValue()));
-
-
     }
-    public boolean IsEmpty()
-    {
+
+    public boolean IsEmpty() {
         return bigSet.isEmpty();
     }
 
@@ -39,7 +56,12 @@ public class FractionSet {
         return (String.format("%.5f", bigSet.get(bigSet.size() - 1).getValue()));
     }
 
+
+    // TODO: pass Fraction as an argument
+    // TODO: rename to `countLessThan`
     public int AllLessThan(int a, int b) {
+        // TODO: use Stream API
+
         if (!amountLess.isEmpty()) {
             System.out.println("Previous requests:\n");
 
