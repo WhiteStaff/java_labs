@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 //        RationalFraction f = new RationalFraction(1, 10);
-//        FractionSet fs = new FractionSet(f1, f2, f3, f4);
+//        FractionList fs = new FractionList(f1, f2, f3, f4);
 //
 //        System.out.println("Fraction: " + f);
 //        System.out.println("Fractions: " + fs);
@@ -11,7 +11,7 @@ public class Main {
 
         int a, b;
         String word;
-        FractionSet myset = new FractionSet();
+        FractionList myset = new FractionList();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter 'help' for help");
         while (true) {
@@ -27,7 +27,6 @@ public class Main {
                         break;
                     }
                     System.out.println("Beautiful view: " + myset.MinFractionView());
-                    System.out.println("As value: " + myset.MinFractionNum());
                     System.out.println("Successful!");
                     break;
                 case "max":
@@ -36,7 +35,6 @@ public class Main {
                         break;
                     }
                     System.out.println("Beautiful view: " + myset.MaxFractionView());
-                    System.out.println("As value: " + myset.MaxFractionNum());
                     System.out.println("Successful!");
                     break;
                 case "less":
@@ -49,7 +47,7 @@ public class Main {
                         a = scanner.nextInt();
                         System.out.print("Enter denumerator: ");
                         b = scanner.nextInt();
-                        System.out.println("Your fraction is bigger than " + myset.AllLessThan(a, b) + " fractions in set.");
+                        System.out.println("Your fraction is bigger than " + myset.countLessThan(a, b) + " fractions in set.");
                     } catch (Exception e) {
                         System.out.println("Numbers, please");
                     }
@@ -64,7 +62,7 @@ public class Main {
                         a = scanner.nextInt();
                         System.out.print("Enter denumerator: ");
                         b = scanner.nextInt();
-                        System.out.println("Your fraction is bigger than " + myset.AllMoreThan(a, b) + " fractions in set.");
+                        System.out.println("Your fraction is bigger than " + myset.countMoreThan(a, b) + " fractions in set.");
 
                     } catch (Exception e) {
                         System.out.println("Numbers, please");
@@ -82,15 +80,7 @@ public class Main {
                         System.out.println("Numbers, please");
 
                     }
-                    break;
-//                case "file":
-//                    File file = new File(scanner.next());
-//                    try {
-//                        Scanner fileScanner = new Scanner(file);
-////                        fileScanner
-//                    } catch (FileNotFoundException e) {
-//                        e.printStackTrace();
-//                    }
+                    break;//
                 case "help":
                     System.out.println("Enter 'exit' to exit\nEnter 'add' to add new fraction\nEnter 'min' to see minimum fraction\nEnter 'max' to see maximum fraction" +
                             "\nEnter less to compare your fraction with fraction set\nEnter more to compare your fraction with fraction set");
