@@ -16,4 +16,10 @@ public abstract class AbstractAccount implements Account{
         balance += value;
     }
 
+    @Override
+    public double getBalance()
+    {
+        return balance;
+    }
+
 }

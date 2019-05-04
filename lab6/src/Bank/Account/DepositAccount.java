@@ -5,12 +5,12 @@ import Bank.Exceptions.WithdrawException;
 
 import java.util.Date;
 
-public class DepositAbstractAccount extends AbstractAccount {
+class DepositAccount extends AbstractAccount {
     private Date date;
     private double startBalance;
     private double percents;
 
-    public DepositAbstractAccount(Customer customer, double balance, Date date, double percents) {
+    public DepositAccount(Customer customer, double balance, Date date, double percents) {
         this.date = date;
         this.startBalance = this.balance = balance;
         this.customer = customer;

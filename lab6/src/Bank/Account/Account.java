@@ -7,4 +7,7 @@ public interface Account {
      void ApplyPercent();
 
      void ApplyCommission();
+
+     double getBalance();
+
 }

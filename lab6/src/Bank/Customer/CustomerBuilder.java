@@ -24,7 +24,7 @@ public class CustomerBuilder {
         this.address = address;
     }
 
-    Customer Build() {
+    public Customer Build() {
         if (name == null || surname == null)
             throw new IncorrectDataException("Name or Surname not found");
         return new Customer(name, surname, passport, address);

@@ -4,11 +4,11 @@ import Bank.Customer.Customer;
 import Bank.Exceptions.InvalidTransferExeption;
 import Bank.Exceptions.WithdrawException;
 
-public class UnverifiedAbstractAccount implements Account {
+class UnverifiedAccount implements Account {
     private double limitForUnverified = 100;
     private AbstractAccount abstractAccount;
 
-    public UnverifiedAbstractAccount(AbstractAccount abstractAccount) {
+    public UnverifiedAccount(AbstractAccount abstractAccount) {
         this.abstractAccount = abstractAccount;
     }
 
@@ -39,5 +39,11 @@ public class UnverifiedAbstractAccount implements Account {
     @Override
     public void ApplyCommission() {
         abstractAccount.ApplyCommission();
+    }
+
+    @Override
+    public double getBalance()
+    {
+        return abstractAccount.balance;
     }
 }

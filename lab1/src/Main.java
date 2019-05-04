@@ -2,12 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        RationalFraction f = new RationalFraction(1, 10);
-//        FractionList fs = new FractionList(f1, f2, f3, f4);
-//
-//        System.out.println("Fraction: " + f);
-//        System.out.println("Fractions: " + fs);
-//        System.out.println("Min fraction: " + fs.getMin());
 
         int a, b;
         String word;
