@@ -7,7 +7,7 @@ public class Polynom {
         list = a;
     }
 
-    public Polynom Sub(Polynom a)
+    public Polynom Sum(Polynom a)
     {
         return new Polynom(this.list.Sub(a.list));
     }
